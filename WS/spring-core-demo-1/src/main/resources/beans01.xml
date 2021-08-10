@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+	<bean id="gs1" class="com.cts.scd.service.SimpleGreetServiceImpl" />
+
+	<bean id="gs2"
+		class="com.cts.scd.service.ArgumentedGreetServiceImpl">
+		<property name="greeting" value="Namnasthey " />
+	</bean>
+
+	<bean id="gs3"
+		class="com.cts.scd.service.ArgumentedGreetServiceImpl">
+		<constructor-arg index="0" value="vanbakkam"/> 
+	</bean>
+	
+	<!-- <bean id="gp1" class="com.cts.scd.service.TimeBasedGreetingProviderImpl"/>
+	
+	<bean id="gs4"
+		class="com.cts.scd.service.ProvidedGreetServiceImpl">
+		<property name="greetingProvider" ref="gp1" />
+		<constructor-arg index="0" ref="gp1"/>
+	</bean> -->
+ 
+  	<bean id="gs4"
+		class="com.cts.scd.service.ProvidedGreetServiceImpl">
+		<property name="greetingProvider">
+			<bean class="com.cts.scd.service.TimeBasedGreetingProviderImpl"/>
+		</property>
+	</bean>
+	
+</beans>

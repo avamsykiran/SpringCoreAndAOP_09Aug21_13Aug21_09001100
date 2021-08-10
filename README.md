@@ -76,12 +76,10 @@ Spring Core, Context and IoC
      requried resources (passing dao into a service or a service into a ui)
      dynamically through constyructors or setter ...etc.,
 
-
-
     Container  is a peice of software that can manage the life cycle of a object,
                 The creation of the object , managing its dependencie and 
                 supplying it to the app code when needed and also destroying the object
-                once its no more needed si al maanaged by the container (context)
+                once its no more needed is all maanaged by the container (context)
 
     The  objects that are manged by a contianer are called container managed beans.
 
@@ -100,6 +98,51 @@ Spring Core, Context and IoC
         Annotation Based Configuaration
         Java Based Configuaration
 
+    Spring Core Maven Dependencies
+    ------------------------------
+	<properties>
+      <maven.compiler.target>1.8</maven.compiler.target>
+		<maven.compiler.source>1.8</maven.compiler.source>
+		<spring-version>5.1.4.RELEASE</spring-version>
+	</properties>
+
+	<dependencies>
+		<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-core</artifactId>
+			<version>${spring-version}</version>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-context</artifactId>
+			<version>${spring-version}</version>
+		</dependency>
+	</dependencies>
 
 
+    Xml Based Configuaration
+    -------------------------------
 
+        <?xml version="1.0" encoding="UTF-8"?>
+        <beans xmlns="http://www.springframework.org/schema/beans"
+            xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+            xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+            <!--Here go bean definitions-->
+
+        </beans>
+
+
+        bean definition
+        ------------------------------------
+            <bean
+                id=""                               identity for the bean to used while asking for it
+                class=""                            fully qualified name of the class to which we need a bean
+                scope=""                            singleton / protoytpe / request / session /global-session
+                autowire=""                         byType / byName / auto / none
+                init-method=""                      is a method that has to execute after a bean is created
+                destroy-method=""                   is a method that has to execute before a bean is destroyed
+            >
+                <property name="" value="" ref=""/>                 is used for setter injection
+                <constructor-arg index="" value="" ref="" />        is used for constructor injection
+            </bean>
