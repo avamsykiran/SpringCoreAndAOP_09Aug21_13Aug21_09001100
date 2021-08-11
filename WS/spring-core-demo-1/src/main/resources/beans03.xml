@@ -2,25 +2,6 @@
 <beans xmlns="http://www.springframework.org/schema/beans"
 	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
-
-	<bean id="gs1" class="com.cts.scd.service.SimpleGreetServiceImpl" />
-
-	<bean id="gs2"
-		class="com.cts.scd.service.ArgumentedGreetServiceImpl">
-		<property name="greeting" value="Namnasthey " />
-	</bean>
-
-	<bean id="gs3"
-		class="com.cts.scd.service.ArgumentedGreetServiceImpl">
-		<constructor-arg index="0" value="vanbakkam"/> 
-	</bean>
-	
-	<bean id="gs4"
-		class="com.cts.scd.service.ProvidedGreetServiceImpl">
-		<property name="greetingProvider">
-			<bean class="com.cts.scd.service.TimeBasedGreetingProviderImpl"/>
-		</property>
-	</bean>
 	
 	<bean id="gp2" class="com.cts.scd.service.MultiLangualGreetingProviderImpl">
 		<property name="greetings">
@@ -34,11 +15,10 @@
 		<property name="selectedLanguage" value="TAM"/>
 	</bean>
 	
-	<bean id="gs5"
-		class="com.cts.scd.service.ProvidedGreetServiceImpl">
-		<property name="greetingProvider" ref="gp2" />
-	</bean>
- 
-  
+	<bean id="greetingProvider" class="com.cts.scd.service.TimeBasedGreetingProviderImpl"/>
 	
+	<bean id="gs5"
+		autowire="byName"
+		class="com.cts.scd.service.ProvidedGreetServiceImpl"/>
+		
 </beans>

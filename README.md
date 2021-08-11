@@ -138,7 +138,7 @@ Spring Core, Context and IoC
             <bean
                 id=""                               identity for the bean to used while asking for it
                 class=""                            fully qualified name of the class to which we need a bean
-                scope=""                            singleton / protoytpe / request / session /global-session
+                scope=""                            singleton / prototype / request / session /global-session
                 autowire=""                         byType / byName / auto / none
                 init-method=""                      is a method that has to execute after a bean is created
                 destroy-method=""                   is a method that has to execute before a bean is destroyed
@@ -146,3 +146,34 @@ Spring Core, Context and IoC
                 <property name="" value="" ref=""/>                 is used for setter injection
                 <constructor-arg index="" value="" ref="" />        is used for constructor injection
             </bean>
+
+
+        Injecting Collections
+        ------------------------------------
+
+            <property name="taxesRateList">
+                <list>
+                    <value>12.0</value>
+                    <value>10.0</value>
+                    <value>1.0</value>
+                    <value>0.50</value>
+                </list>
+            </property>
+
+            <property name="countries">
+                <set>
+                    <value>India</value>
+                    <value>Russia</value>
+                    <value>USA</value>
+                    <value>Britan</value>
+                </set>
+            </property>
+
+             <property name="greetings">
+                <map>
+                   <entry key="ENG" value="Hello" />
+                   <entry key="HIN" value="Namaskar" />
+                   <entry key="TEL" value="Namasthey" />
+                   <entry key="TAM" value="Vanakkam" />
+                </map>
+            </property>

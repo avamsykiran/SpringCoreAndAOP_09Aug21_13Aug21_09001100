@@ -15,19 +15,30 @@
 		<constructor-arg index="0" value="vanbakkam"/> 
 	</bean>
 	
-	<!-- <bean id="gp1" class="com.cts.scd.service.TimeBasedGreetingProviderImpl"/>
-	
 	<bean id="gs4"
-		class="com.cts.scd.service.ProvidedGreetServiceImpl">
-		<property name="greetingProvider" ref="gp1" />
-		<constructor-arg index="0" ref="gp1"/>
-	</bean> -->
- 
-  	<bean id="gs4"
 		class="com.cts.scd.service.ProvidedGreetServiceImpl">
 		<property name="greetingProvider">
 			<bean class="com.cts.scd.service.TimeBasedGreetingProviderImpl"/>
 		</property>
 	</bean>
+	
+	<bean id="gp2" class="com.cts.scd.service.MultiLangualGreetingProviderImpl">
+		<property name="greetings">
+			<map>
+			 <entry key="ENG" value="Hello" />
+             <entry key="HIN" value="Namaskar" />
+             <entry key="TEL" value="Namasthey" />
+             <entry key="TAM" value="Vanakkam" />
+			</map>
+		</property>
+		<property name="selectedLanguage" value="TAM"/>
+	</bean>
+	
+	<bean id="gs5"
+		class="com.cts.scd.service.ProvidedGreetServiceImpl">
+		<property name="greetingProvider" ref="gp2" />
+	</bean>
+ 
+  
 	
 </beans>

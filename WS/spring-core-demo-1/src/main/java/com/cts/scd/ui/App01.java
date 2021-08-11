@@ -6,7 +6,7 @@ import org.springframework.context.support.ClassPathXmlApplicationContext;
 import com.cts.scd.service.GreetService;
 
 public class App01 {
-d
+
 	public static void main(String[] args) {
 		//GreetService greetService = new SimpleGreetServiceImpl();
 		//System.out.println(greetService.greet("Vamsy"));
@@ -25,7 +25,8 @@ d
 		GreetService greetService4 = (GreetService) context.getBean("gs4");
 		System.out.println(greetService4.greet("Vamsy"));
 		
-		
+		GreetService greetService5 = (GreetService) context.getBean("gs5");
+		System.out.println(greetService5.greet("Vamsy"));
 	}
 
 }
