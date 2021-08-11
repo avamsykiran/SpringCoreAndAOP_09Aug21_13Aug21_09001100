@@ -177,3 +177,32 @@ Spring Core, Context and IoC
                    <entry key="TAM" value="Vanakkam" />
                 </map>
             </property>
+
+    Annotation Based Configuaration
+    -------------------------------
+      @Component("id")
+      @Scope("singleton/prototype/request/session/global-session")
+      public class MyComponent{
+
+          @Value("value/SpEL expression")
+          private String field1;
+
+          @Autowired
+          @Qualifier("idOfAnothercompoennt")
+          private AnotherComponent field2;
+          
+      }
+
+      @Configuaration
+      @ComponentScan("packageName")
+      public class MyConfiguaration{
+
+      }
+
+      AppplicationContext context = new AnnotationApplicationContext(MyConfiguaration.class)
+
+      @Component
+        @Service
+        @Repository
+        @Controller
+        ....etc
