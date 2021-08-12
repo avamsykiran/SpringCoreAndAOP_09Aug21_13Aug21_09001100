@@ -132,7 +132,6 @@ Spring Core, Context and IoC
 
         </beans>
 
-
         bean definition
         ------------------------------------
             <bean
@@ -195,6 +194,7 @@ Spring Core, Context and IoC
 
       @Configuaration
       @ComponentScan("packageName")
+      @PropertySource("classpath:filename.properties")
       public class MyConfiguaration{
 
       }
@@ -206,3 +206,21 @@ Spring Core, Context and IoC
         @Repository
         @Controller
         ....etc
+
+     Java Based Configuaration
+     --------------------------------------
+
+        is used alongside the annotation based configuartion.
+
+
+      @Configuaration
+      public class MyConfiguaration{
+
+                                        <bean id="today" class="java.util.LocalDate" scope="prototype" factory-method="now" />
+          @Bean                             
+          @Scope("prototype")
+          public LocalDate today(){
+              return LocalDate.now();
+          }
+
+      }

@@ -2,6 +2,9 @@ package com.cts.scd.service;
 
 import java.time.LocalTime;
 
+import org.springframework.stereotype.Service;
+
+@Service
 public class TimeBasedGreetingProviderImpl implements GreetingProvider{
 
 	@Override

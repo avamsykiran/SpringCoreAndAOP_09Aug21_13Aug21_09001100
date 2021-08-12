@@ -6,7 +6,7 @@ import org.springframework.stereotype.Service;
 @Service("gs2")
 public class ArgumentedGreetServiceImpl implements GreetService{
 
-	@Value("Hai")
+	@Value("${greeting:Hello}")
 	private String greeting;
 	
 	public ArgumentedGreetServiceImpl() {}

@@ -17,6 +17,11 @@ public class App01 {
 		
 		GreetService greetService2 = (GreetService) context.getBean("gs2");
 		System.out.println(greetService2.greet("Vamsy"));
+		
+		GreetService greetService3 = (GreetService) context.getBean("gs3");
+		System.out.println(greetService3.greet("Vamsy"));
+		
+		System.out.println(context.getBean("today"));
 	}
 
 }

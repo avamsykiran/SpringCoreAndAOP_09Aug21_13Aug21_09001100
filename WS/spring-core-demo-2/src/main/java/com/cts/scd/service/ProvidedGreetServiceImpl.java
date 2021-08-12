@@ -1,7 +1,15 @@
 package com.cts.scd.service;
 
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
+import org.springframework.stereotype.Service;
+
+@Service("gs3")
 public class ProvidedGreetServiceImpl implements GreetService{
 
+	@Autowired
+	@Qualifier("multiLangualGreetingProviderImpl")
+	//@Qualifier("timeBasedGreetingProviderImpl")
 	private GreetingProvider greetingProvider;
 	
 	public ProvidedGreetServiceImpl() {}

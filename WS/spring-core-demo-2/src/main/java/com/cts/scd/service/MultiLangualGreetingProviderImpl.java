@@ -2,9 +2,16 @@ package com.cts.scd.service;
 
 import java.util.Map;
 
+import org.springframework.beans.factory.annotation.Value;
+import org.springframework.stereotype.Service;
+
+@Service
 public class MultiLangualGreetingProviderImpl implements GreetingProvider{
 
+	@Value("#{${provider.greetings}}")
 	private Map<String,String> greetings;
+	
+	@Value("${provider.lang}")
 	private String selectedLanguage;
 	
 	@Override
