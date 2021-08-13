@@ -212,7 +212,6 @@ Spring Core, Context and IoC
 
         is used alongside the annotation based configuartion.
 
-
       @Configuaration
       public class MyConfiguaration{
 
@@ -224,3 +223,20 @@ Spring Core, Context and IoC
           }
 
       }
+
+Spring Jdbc
+-----------------------------------------------------------------------------------------------
+
+    is a spring moduel that makes working with jdbc operation more 
+    simpler and maintainable.
+
+    JdbcTemplate
+    NamedJdbcTemplate
+
+    NamedQuery
+
+    NamedParameterSource
+    SimpleNamedParameterSource
+    BeanNameParameterSource
+
+    RowMapper

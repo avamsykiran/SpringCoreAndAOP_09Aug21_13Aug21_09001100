@@ -7,6 +7,7 @@ import org.springframework.stereotype.Service;
 
 import com.cts.bta.dao.TransactionsRepo;
 import com.cts.bta.model.Transaction;
+import com.cts.bta.model.TransactionType;
 
 @Service
 public class TransactionsServiceImpl implements TransactionsService{
@@ -16,44 +17,43 @@ public class TransactionsServiceImpl implements TransactionsService{
 	
 	@Override
 	public List<Transaction> getAll() {
-		// TODO Auto-generated method stub
-		return null;
+		return txnRepo.getAll();
 	}
 
 	@Override
 	public Transaction getById(Long txId) {
-		// TODO Auto-generated method stub
-		return null;
+		return txnRepo.getById(txId);
 	}
 
 	@Override
 	public Transaction add(Transaction txn) {
-		// TODO Auto-generated method stub
-		return null;
+		return txnRepo.add(txn);
 	}
 
 	@Override
 	public void delete(Long txId) {
-		// TODO Auto-generated method stub
-		
+		txnRepo.delete(txId);
 	}
 
 	@Override
 	public double getTotalIncome() {
-		// TODO Auto-generated method stub
-		return 0;
+		return getAll().stream()
+				.filter(t -> t.getType()==TransactionType.INCOME)
+				.map(t -> t.getAmount())
+				.reduce((a1,a2)->a1+a2).orElse(0.0);
 	}
 
 	@Override
 	public double getTotalExpendeture() {
-		// TODO Auto-generated method stub
-		return 0;
+		return getAll().stream()
+				.filter(t -> t.getType()==TransactionType.EXPENSE)
+				.map(t -> t.getAmount())
+				.reduce((a1,a2)->a1+a2).orElse(0.0);
 	}
 
 	@Override
 	public double getCurrentBalance() {
-		// TODO Auto-generated method stub
-		return 0;
+		return getTotalIncome()-getTotalExpendeture();
 	}
 
 }
