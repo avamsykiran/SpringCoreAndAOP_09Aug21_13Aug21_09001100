@@ -230,8 +230,11 @@ Spring Jdbc
     is a spring moduel that makes working with jdbc operation more 
     simpler and maintainable.
 
+    DriverMAangerDataSource
+
     JdbcTemplate
-    NamedJdbcTemplate
+    NamedParameterJdbcTemplate
+    SimpleJdbcTemplate
 
     NamedQuery
 
@@ -240,3 +243,57 @@ Spring Jdbc
     BeanNameParameterSource
 
     RowMapper
+
+Spring AOP
+-------------------------------------------------------------------------------------------------
+
+        Aspect Oriented Programming
+
+        An aspect is a domain independent cross cutting concern or operation
+        that can used across our application.
+
+            Like 
+                    logging
+                    transaction management
+                    security (authentication and authorization) ...etc
+
+        we can configuarwe the aspects to execute after or before or around a regular bussienss logic
+        by still keeping them isolated.
+
+
+        the cross-cutting concern tobe executed is called ASPECT
+        and the actual bussiness logic by reference to whcihan aspect has to exeucte is calle JOIN POINT
+        to let the ASPECT know the JOIN POIINt, the POINT CUT is used.
+
+        PointCut
+        ------------------------
+        "execution(* packageName.ClassName.methodName(..))"
+        
+        AspectJ Annotations
+        -------------------------
+        @EnableAspectJAutoProxy
+        @Aspect - Represents an aspect advice class.
+        @Before – Run before the method execution
+        @After – Run after the method returned a result
+        @AfterReturning – Run after the method returned a result, intercept the returned result as well.
+        @AfterThrowing – Run after the method throws an exception
+        @Around – Run around the method execution, combine all three advices above.
+        
+        
+        <dependency>
+            <groupId>org.springframework</groupId>
+            <artifactId>spring-aop</artifactId>
+            <version>${spring.version}</version>
+        </dependency>
+
+        <dependency>
+            <groupId>org.aspectj</groupId>
+            <artifactId>aspectjrt</artifactId>
+            <version>1.6.11</version>
+        </dependency>
+        
+        <dependency>
+            <groupId>org.aspectj</groupId>
+            <artifactId>aspectjweaver</artifactId>
+            <version>1.6.11</version>
+        </dependency>
